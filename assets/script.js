@@ -7,11 +7,7 @@ var answer3 = document.querySelector('#answer3');
 var answer4 = document.querySelector('#answer4');
 var timer = document.querySelector('#timer');
 
-
-
 var count = 0;
-
-
 
 const start = document.querySelector('#start-button');
 
@@ -39,6 +35,10 @@ var secondsLeft = 60;
 
 var timerInterval;
 
+var scores = [];
+
+var scoreHistory = localStorage.getItem('score history');
+
 // Timer
 
 function timerCounter() {
@@ -50,8 +50,6 @@ function timerCounter() {
     // All steps required to end game
   }
 }
-
-
 
 
 // Questions
@@ -98,11 +96,11 @@ function nextQuestion(evt) {
   }
   
   
-  console.log(`User Input ${userInput}`);
-  console.log(`Correct Answer Array: ${correctAnswerIndex[count]}`);
+  // console.log(`User Input ${userInput}`);
+  // console.log(`Correct Answer Array: ${correctAnswerIndex[count]}`);
 
   count++;
-  console.log(`Count: ${count}`);
+  // console.log(`Count: ${count}`);
   displayQuestion();
   // See if answer is correct
 
@@ -128,6 +126,9 @@ function displayQuestion() {
   } else {
     question.style.display = 'none';
     clearInterval(timerInterval);
+    scores.push(secondsLeft);
+    localStorage.setItem('score history', scores);
+    console.log(scores);
   }
 
   // count++
@@ -137,28 +138,6 @@ function displayQuestion() {
 
 // Leaderboard
 
+function displayLeaderboard() {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const correctAnswer = {
-//   question1A: 'Object',
-//   question2A: 'Cascading Style Sheets',
-//   question3A: '<section>',
-//   question4A: 'By using # sign',
-//   question5A: 'a script tag'
-// }
+}
