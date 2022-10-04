@@ -37,9 +37,9 @@ var secondsLeft = 60;
 
 var timerInterval;
 
-var scores = [];
+var scoreHistory = localStorage.getItem('highScores');
 
-var scoreHistory = localStorage.getItem('score history');
+var scores = JSON.parse(scoreHistory);
 
 // Timer
 
@@ -104,7 +104,6 @@ function nextQuestion(evt) {
   count++;
   // console.log(`Count: ${count}`);
   displayQuestion();
-  // See if answer is correct
 
 }
 
@@ -120,11 +119,11 @@ function displayQuestion() {
   } else {
     question.style.display = 'none';
     clearInterval(timerInterval);
-    scores.push(secondsLeft);
-    console.log(scores);
     timer.textContent = secondsLeft;
     var leaderBoard = prompt(`Here is your score: ${secondsLeft}.\nPlease enter you name:`)
-    localStorage.setItem('High Scores', JSON.stringify(scores));
+    scores = Object.assign({leaderBoard: secondsLeft});
+    console.log(scores)
+    localStorage.setItem('highScores', JSON.stringify(scores));
 
     displayLeaderboard();
   }
@@ -138,6 +137,8 @@ function displayQuestion() {
 
 function displayLeaderboard() {
   
+
+
 }
 
 start.addEventListener('click', startQuiz);
@@ -147,4 +148,4 @@ answer2.addEventListener('click', nextQuestion);
 answer3.addEventListener('click', nextQuestion);
 answer4.addEventListener('click', nextQuestion);
 
-highscores.addEventListner('click', displayLeaderboard);
+// highscores.addEventListner('click', displayLeaderboard);
