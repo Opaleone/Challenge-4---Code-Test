@@ -6,6 +6,8 @@ var answer2 = document.querySelector('#answer2');
 var answer3 = document.querySelector('#answer3');
 var answer4 = document.querySelector('#answer4');
 var timer = document.querySelector('#timer');
+var highscores = document.querySelector('#highscore');
+var leaderBoard = document.querySelector('#leaderboard');
 
 var count = 0;
 
@@ -106,14 +108,6 @@ function nextQuestion(evt) {
 
 }
 
-start.addEventListener('click', startQuiz);
-
-answer1.addEventListener('click', nextQuestion);
-answer2.addEventListener('click', nextQuestion);
-answer3.addEventListener('click', nextQuestion);
-answer4.addEventListener('click', nextQuestion);
-
-
 function displayQuestion() {
 
   if (count < 5) {
@@ -127,8 +121,12 @@ function displayQuestion() {
     question.style.display = 'none';
     clearInterval(timerInterval);
     scores.push(secondsLeft);
-    localStorage.setItem('score history', scores);
     console.log(scores);
+    timer.textContent = secondsLeft;
+    var leaderBoard = prompt(`Here is your score: ${secondsLeft}.\nPlease enter you name:`)
+    localStorage.setItem('High Scores', JSON.stringify(scores));
+
+    displayLeaderboard();
   }
 
   // count++
@@ -139,5 +137,14 @@ function displayQuestion() {
 // Leaderboard
 
 function displayLeaderboard() {
-
+  
 }
+
+start.addEventListener('click', startQuiz);
+
+answer1.addEventListener('click', nextQuestion);
+answer2.addEventListener('click', nextQuestion);
+answer3.addEventListener('click', nextQuestion);
+answer4.addEventListener('click', nextQuestion);
+
+highscores.addEventListner('click', displayLeaderboard);

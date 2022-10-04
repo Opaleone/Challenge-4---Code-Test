@@ -62,6 +62,7 @@ body {
 
 #start-button:hover {
   width: 65%;
+  height: 5.5rem;
   font-size: 35px;
 }
 
@@ -87,6 +88,7 @@ body {
 
 #question-title {
   font-size: 50px;
+  margin-left: 20px;
 }
 
 #question-answers {
@@ -148,4 +150,10 @@ body {
 
 #answer4::before {
   content: 'D. '
+}
+
+#leaderboard-title {
+  border-bottom: solid#777;
+  font-size: 40px;
+  color: var(--purple);
 }
