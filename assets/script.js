@@ -41,7 +41,7 @@ var timerInterval;
 
 var scores = localStorage.getItem('highScore');
 
-// Timer
+// Timer Function
 
 function timerCounter() {
   secondsLeft--;
@@ -63,7 +63,7 @@ function startQuiz() {
   displayQuestion();
 }
 
-// Question Display
+// Question Display Functions
 
 function displayQuestion() {
 
@@ -117,7 +117,7 @@ function nextQuestion(evt) {
 
 
 
-// Leaderboard
+// Leaderboard Functions
 
 function displayLeaderboard(num) {
   var titleEl = document.createElement('h1');
@@ -156,7 +156,7 @@ function leaderBoardLink() {
   leaderBoard.style.display = 'flex';
 }
 
-// Event listeners for Buttons
+// Event listeners on buttons that run the different Functions
 
 start.addEventListener('click', startQuiz);
 answer1.addEventListener('click', nextQuestion);
