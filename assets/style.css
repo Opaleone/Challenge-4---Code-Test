@@ -1,6 +1,7 @@
 :root {
   --purple: #5D3FD3;
   --lightPurple: #8D8Ff3;
+  --gray: #777;
 }
 
 * {
@@ -69,7 +70,13 @@ body {
 #highscore {
   color: var(--purple);
   text-decoration: none;
+  cursor: pointer;
+  
+}
 
+#highscore:hover {
+  border-bottom: solid var(--gray);
+  color: var(--lightPurple);
 }
 
 #question {
@@ -152,8 +159,27 @@ body {
   content: 'D. '
 }
 
+#leaderboard {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin: 0 auto;
+  width: 50%;
+  height: 40rem;
+  border: 20px dashed #aaa;
+  border-radius: 20px;
+  margin-top: 5%;
+}
+
 #leaderboard-title {
   border-bottom: solid#777;
-  font-size: 40px;
+  font-size: 50px;
   color: var(--purple);
+}
+
+#score-display {
+  font-size: 70px;
+  color: var(--gray);
 }
