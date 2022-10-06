@@ -140,6 +140,8 @@ function displayLeaderboard(num) {
 function leaderBoardLink() {
   intro.style.display = 'none';
 
+  leaderBoard.innerHTML = '';
+
   var titleEl = document.createElement('h1');
   var scoreDisplay = document.createElement('p');
 
