@@ -22,14 +22,14 @@ const questions = {
 
 
 const answers = {
-  question1W: ['string', 'number', 'boolean', 'object'],
+  question1W: ['string', 'object', 'number', 'boolean'],
   question2W: ['Crevice Sand Storm', 'Computer Secret Sauce', 'Computer Science Sheets', 'Cascading Style Sheets'],
-  question3W: ['<div>', '<head>', '<h1>', '<section>'],
+  question3W: ['<div>', '<head>', '<section>', '<h1>'],
   question4W: ['.selector', 'selector', '#selector', '/selector'],
-  question5W: ['<connect>','<join>', '<append>','<link>']
+  question5W: ['<link>', '<connect>','<join>', '<append>']
 }
 
-const correctAnswerIndex = [3, 3, 3, 2, 3];
+const correctAnswerIndex = [1, 3, 2, 2, 0];
 
 // Timer variables
 
@@ -102,7 +102,6 @@ function nextQuestion(evt) {
   if (userInput === correctAnswerIndex[count]) {
     pEl.textContent = 'Correct!';
     question.appendChild(pEl);
-    secondsLeft += 6;
   } else {
     pEl.textContent = 'WRONG!';
     question.appendChild(pEl);
@@ -113,9 +112,6 @@ function nextQuestion(evt) {
   displayQuestion();
 
 }
-
-
-
 
 // Leaderboard Functions
 
@@ -168,6 +164,7 @@ function leaderBoardLink() {
   leaderBoard.appendChild(playAgain);
 
   document.querySelector('#playAgain').addEventListener('click', reloadPage);
+  highScores.addEventListener('click', reloadPage);
 
   leaderBoard.style.display = 'flex';
 }
