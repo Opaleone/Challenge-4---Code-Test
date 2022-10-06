@@ -122,16 +122,23 @@ function nextQuestion(evt) {
 function displayLeaderboard(num) {
   var titleEl = document.createElement('h1');
   var scoreDisplay = document.createElement('p');
+  var playAgain = document.createElement('button')
 
   titleEl.setAttribute('id', 'leaderboard-title');
   scoreDisplay.setAttribute('id', 'score-display');
+  playAgain.setAttribute('id', 'playAgain');
 
   scoreDisplay.textContent = num;
 
   titleEl.textContent = 'Your last score is:'
 
+  playAgain.textContent = 'Play again';
+
   leaderBoard.appendChild(titleEl);
   leaderBoard.appendChild(scoreDisplay);
+  leaderBoard.appendChild(playAgain);
+
+  document.querySelector('#playAgain').addEventListener('click', reloadPage);
 
   leaderBoard.style.display = 'flex';
   
@@ -144,18 +151,29 @@ function leaderBoardLink() {
 
   var titleEl = document.createElement('h1');
   var scoreDisplay = document.createElement('p');
+  var playAgain = document.createElement('button')
 
   titleEl.setAttribute('id', 'leaderboard-title');
   scoreDisplay.setAttribute('id', 'score-display');
+  playAgain.setAttribute('id', 'playAgain');
 
   scoreDisplay.textContent = scores;
 
-  titleEl.textContent = 'Your last score is:'
+  titleEl.textContent = 'Your last score is:';
+
+  playAgain.textContent = 'Home';
 
   leaderBoard.appendChild(titleEl);
   leaderBoard.appendChild(scoreDisplay);
+  leaderBoard.appendChild(playAgain);
+
+  document.querySelector('#playAgain').addEventListener('click', reloadPage);
 
   leaderBoard.style.display = 'flex';
+}
+
+function reloadPage() {
+  location.reload();
 }
 
 // Event listeners on buttons that run the different Functions
